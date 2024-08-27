@@ -30,10 +30,10 @@ endif()
 add_samp_plugin(${PROJECT_NAME} ${PLUGIN_SOURCES})
 
 if(WIN32)
-	add_definitions(-DNOMINMAX)
+    add_definitions(-DNOMINMAX)
 else()
-	set_property(TARGET ${PROJECT_NAME} APPEND_STRING PROPERTY COMPILE_FLAGS " -fno-strict-aliasing")
-	set_property(TARGET ${PROJECT_NAME} APPEND_STRING PROPERTY LINK_FLAGS " -lrt")
+    set_property(TARGET ${PROJECT_NAME} APPEND_STRING PROPERTY COMPILE_FLAGS " -fno-strict-aliasing -Wno-nonnull")
+    set_property(TARGET ${PROJECT_NAME} APPEND_STRING PROPERTY LINK_FLAGS " -lrt")
 endif()
 
 add_definitions(
