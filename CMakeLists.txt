@@ -3,8 +3,12 @@ project(streamer)
 
 set(PLUGIN_VERSION "2.9.6")
 set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-null-dereference")
+
+add_compile_options(-Wno-null-dereference)
 
 if (MSVC)
+	add_compile_options(/wd4297)
     add_definitions("/MP")
 endif()
 
